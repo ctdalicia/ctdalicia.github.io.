@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IRL OR AI ?</title>
+	<style>
+		body {
+			background-color: purple;
+			color: white;
+	    background-image: url(pic3.jpg);
+	    background-position: center;
+	    background-size: cover;
+	    height: 100vh;
+	    font-family: Arial,sans-serif;
+	}
+
+	.wrapper{
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    width: 100vw;
+	    height: 100vh;
+	}
+
+	.quiz{
+	    display: grid;
+	    grid-template-rows: 60px auto;
+	    width: 600px;
+	    height: 500px;
+	    border-radius: 50px;
+	}
+
+	.quiz_header{
+	    display: flex;
+	    justify-content: space-between;
+	    border-bottom-left-radius: 3px;
+	    border-bottom-right-radius: 3px;
+	    background-color: #fff;
+	    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+	    z-index: 1;
+	}
+
+	.quiz_user{
+	    display: flex;
+	    align-items: center;
+	    height: 100%;
+	    padding-left: 30px;
+	}
+
+	.quiz_body{
+	    padding: 20px 30px;
+	    background-color: rgb(213, 235, 135);
+	}
+
+
+	.option_group{
+	    list-style-type: none;
+	    margin: 30px 0;
+	}
+	.option {
+  display: block;
+  width: 400px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  transition: 0.4s all;
+     border: 2px solid #341f97;
+	    color: #341f97; /* Ajouter cette ligne pour changer le curseur de la souris */
+}
+
+	.option.active{
+	    background-color: #341f97;
+	    color: #fff;
+	}
+
+	.btn-next{
+	    border: none;
+	    padding: 15px 35px;
+	    background-color: #341f97;
+	    color: #fff;
+	    border-radius: 50px;
+	    transition: 0.4s all;
+	}
+
+	.next-question-link:hover{
+	    cursor: pointer;
+	    background-color: greenyellow;
+	    color: #000;
+	}
+
+	.award_icon{
+	    display: block;
+	    font-size: 300px;
+	    color: #fff;
+	}
+
+	.username, .userpoints{
+	    color: #fff;
+	    text-align: center;
+	    margin-top: 15px;
+	}
+
+	.border{
+	    height: 500px;
+	    width: 500px;
+	    display: block;
+	    justify-content: center;
+	    margin: 0px 400px;
+	    border-radius: 10px;
+	    top: 100px;
+	    border-color: transparent;
+	}
+
+	h1 {
+		text-align: center;
+		font-size: 36px;
+		margin-top: 50px;
+		color: white;
+		
+	}
+	h2 {
+		font-size: 24px;
+		margin-top: 30px;
+		color: white;
+		border: 10px #000;
+	}
+    h4 {
+		font-size: 24px;
+		margin-top: 30px;
+		color: rgb(0, 0, 0);
+		border: 10px #000;
+    }
+	p {color: #9767f1; /* violet pastel */
+		font-size: 28px;
+		margin-top: 10px;
+		padding: 10px 20px;
+			background-color: white;
+		}
+		p1 {color: #9767f1; /* violet pastel */
+		font-size: 28px;
+		margin-top: 10px;
+		padding: 10px 20px;
+			
+		}
+		p2 {color: #9767f1; /* violet pastel */
+		font-size: 28px;
+		margin-top: 10px;
+		padding: 10px 20px;
+			
+		}
+		img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+			height: auto;
+		}
+		
+		a {
+			font-size: 20px;
+			padding: 10px 20px;
+			background-color: white;
+			color: purple;
+			border: none;
+			border-radius: 5px;
+			margin-top: 20px;
+			cursor: pointer;
+		}
+		.summary {
+			display: none;
+			margin-top: 50px;
+			text-align: center;
+		}
+		.correct {
+			color: green;
+			font-weight: bold;
+		}
+		.incorrect {
+			color: red;
+			font-weight: bold;
+		}
+		a.next-question-link {
+  color: #B19CD9; /* violet pastel */
+  border: none;
+	    padding: 15px 35px;
+	    background-color: #341f97;
+	   
+	    border-radius: 50px;
+	    transition: 0.4s all;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+* {
+          box-sizing: border-box;
+        }
+        
+        .column {
+          float: left;
+          width: 50%;
+          padding: 5px;
+        }
+        
+        /* Clearfix (clear floats) */
+		.row::after {
+content: "";
+clear: both;
+display: table;
+}
+		.réponse {
+			font-size: 24px;
+    font-weight: 150px bold;
+  }
+
+  small {
+  font-size: 22px;
+}
+
+	</style>
+</head>
+<body>
+	<h1>Quiz sur l'intelligence artificielle (AI) </h1>
+	<div class="wrapper">
+        <div class="quiz">
+            <div class="quiz_header">
+                <div class="quiz_user">
+                    <h4>CREATION <span class="name"></span></h4>
+                </div>     
+            </div>
+			<div class="quiz_body">
+				<div id="question1">
+					<h2>Question 4</h2>
+					<p>Lequel de ces articles de mode vient d'une intelligence artificielle (IA) ?
+                        <div class="image-container">         
+					<img src="050330c0bab482d33ea354ce4e67c0fe.jpg" class="image-left">
+					<img src="FUTURISTIC3.jpg" class="image-middle">
+					<img src="vêtement nike Jacquemus.jpeg" class="image-right">
+					 </div></p>
+					<form>
+						<!-- Ajout de l'attribut "onclick" sur les boutons pour appeler une fonction -->
+						<li class="option" id="option1"><input type="radio" name="q1" value="Les chaussures">Les chaussures <br></li>
+						<li class="option" id="option2"><input type="radio" name="q1" value="La robe">La robe <br></li>
+						<li class="option" id="option3"><input type="radio" name="q1" value="Le sac a dos">Le sac à dos <br></li>
+					</form>
+					<button onclick="checkAnswer('option3', 'answer3','option1', 'answer1', 'option2', 'answer2'  )">Répondre</button>
+					<div id="answer3" class="summary" style="display: none">
+                        <p>La réponse correcte est <span class="correct">Le sac à dos(IA)</span>.</p>
+					</div>
+					<div id="answer1" class="summary" style="display: none">
+                        <p>La réponse correcte n'est pas <span class="incorrect">Les chaussures </span>.</p>
+					</div>
+					<div id="answer2" class="summary" style="display: none">
+						<p>La réponse correcte n'est pas <span class="incorrect">La robe </span>.</p>
+					</div>
+					
+				</div>
+			</div><a href="final.html" class="next-question-link" onclick="next()">Final</a>
+	</div>
+
+	<script>
+		function checkAnswer(optionId, answerId) {
+			var answer = document.getElementById(answerId);
+			answer.style.display = 'block';
+			var summary = answer.querySelector('p');
+			if (optionId === 'option3') {
+				if (document.querySelector('input[name="q1"]:checked').value === 'Le sac a dos') {
+                    summary.innerHTML += 'Vous avez choisi <span class="correct">la bonne réponse</span>.<br><br><small>Dans le domaine de la mode, il y a eu plusieurs créations notables générées par IA. Voici quelques exemples : <br><br> En 2019, le géant de la mode japonais Uniqlo a lancé une collection de t-shirts créée en utilisant un algorithme génératif appelé "GAN", qui a créé des motifs basés sur des images et des motifs d archives d Uniqlo.<br> En 2020, la société de mode russe A Better Tomorrow a lancé une collection de vêtements créée en utilisant l IA, en utilisant un algorithme appelé "Neural Network". <br> En 2021, le designer de mode britannique Benjamin Benmoyal a créé une robe de mariée à l aide d un algorithme d apprentissage automatique appelé "Generative Adversarial Network" (GAN). <br> Ces exemples montrent comment l IA est de plus en plus utilisée dans le monde la création et plus particulièrerent de la mode pour créer des designs et des vêtements. <br><br> Le sac que vous voyez fait partie d une collection de mode créée par une intelligence artificielle (IA) nommée "A.I. New Form". Les créateurs de cette collection ont utilisé un modèle IA pour générer des designs de vêtements, qui ont ensuite été réalisés par des artisans japonais à partir de matériaux traditionnels tels que la soie et le coton. Les designs de la collection sont présentés avec des images de mannequins portant les vêtements, ainsi qu une vidéo montrant le processus de création. L originalité et l esthétique des designs pourrait inspirer de nouvelles idées dans le monde de la mode. Cependant, la collection n est pas réellement disponible à la vente, il s agit plutôt d un projet conceptuel pour explorer les possibilités de l IA dans la mode. En conclusion, cette collection peut être vue comme une source d inspiration pour les créateurs de mode et les amateurs de design. <br><br> Cette année, une robe est devenue virale sur internet, pour son aspect féerique, on a decouvert, quelque temps plus tard que la robe n existait pas, mais qu elle avait belle et bien été conçue par une intelligence artificielle  </small>';
+				} else {
+					summary.innerHTML += 'Vous avez choisi <span class="incorrect">la mauvaise réponse</span>.<br><br><small>Dans le domaine de la mode, il y a eu plusieurs créations notables générées par IA. Voici quelques exemples : <br><br> En 2019, le géant de la mode japonais Uniqlo a lancé une collection de t-shirts créée en utilisant un algorithme génératif appelé "GAN", qui a créé des motifs basés sur des images et des motifs d archives d Uniqlo.<br> En 2020, la société de mode russe A Better Tomorrow a lancé une collection de vêtements créée en utilisant l IA, en utilisant un algorithme appelé "Neural Network". <br> En 2021, le designer de mode britannique Benjamin Benmoyal a créé une robe de mariée à l aide d un algorithme d apprentissage automatique appelé "Generative Adversarial Network" (GAN). <br> Ces exemples montrent comment l IA est de plus en plus utilisée dans le monde la création et plus particulièrerent de la mode pour créer des designs et des vêtements. <br><br> Le sac que vous voyez fait partie d une collection de mode créée par une intelligence artificielle (IA) nommée "A.I. New Form". Les créateurs de cette collection ont utilisé un modèle IA pour générer des designs de vêtements, qui ont ensuite été réalisés par des artisans japonais à partir de matériaux traditionnels tels que la soie et le coton. Les designs de la collection sont présentés avec des images de mannequins portant les vêtements, ainsi qu une vidéo montrant le processus de création. L originalité et l esthétique des designs pourrait inspirer de nouvelles idées dans le monde de la mode. Cependant, la collection n est pas réellement disponible à la vente, il s agit plutôt d un projet conceptuel pour explorer les possibilités de l IA dans la mode. En conclusion, cette collection peut être vue comme une source d inspiration pour les créateurs de mode et les amateurs de design.<br><br> Cette année, une robe est devenue virale sur internet, pour son aspect féerique, on a decouvert, quelque temps plus tard que la robe n existait pas, mais qu elle avait belle et bien été conçue par une intelligence artificielle  </small>';
+				}
+				
+			}else if (optionId === 'option2') {
+				 if (document.querySelector('input[name="q1"]:checked').value === 'La robe') {
+					summary.innerHTML += 'Vous avez choisi <span class="incorrect">la mauvaise réponse</span>. <br><br><small>Dans le domaine de la mode, il y a eu plusieurs créations notables générées par IA. Voici quelques exemples : <br><br> En 2019, le géant de la mode japonais Uniqlo a lancé une collection de t-shirts créée en utilisant un algorithme génératif appelé "GAN", qui a créé des motifs basés sur des images et des motifs d archives d Uniqlo.<br> En 2020, la société de mode russe A Better Tomorrow a lancé une collection de vêtements créée en utilisant l IA, en utilisant un algorithme appelé "Neural Network". <br> En 2021, le designer de mode britannique Benjamin Benmoyal a créé une robe de mariée à l aide d un algorithme d apprentissage automatique appelé "Generative Adversarial Network" (GAN). <br> Ces exemples montrent comment l IA est de plus en plus utilisée dans le monde la création et plus particulièrerent de la mode pour créer des designs et des vêtements. <br><br> Le sac que vous voyez fait partie d une collection de mode créée par une intelligence artificielle (IA) nommée "A.I. New Form". Les créateurs de cette collection ont utilisé un modèle IA pour générer des designs de vêtements, qui ont ensuite été réalisés par des artisans japonais à partir de matériaux traditionnels tels que la soie et le coton. Les designs de la collection sont présentés avec des images de mannequins portant les vêtements, ainsi qu une vidéo montrant le processus de création. L originalité et l esthétique des designs pourrait inspirer de nouvelles idées dans le monde de la mode. Cependant, la collection n est pas réellement disponible à la vente, il s agit plutôt d un projet conceptuel pour explorer les possibilités de l IA dans la mode. En conclusion, cette collection peut être vue comme une source d inspiration pour les créateurs de mode et les amateurs de design<br><br> Cette année, une robe est devenue virale sur internet, pour son aspect féerique, on a decouvert, quelque temps plus tard que la robe n existait pas, mais qu elle avait belle et bien été conçue par une intelligence artificielle   </small>';
+				} 
+			} else if (optionId === 'option1') {
+				if (document.querySelector('input[name="q1"]:checked').value === 'Les chaussures') {
+                    summary.innerHTML += 'Vous avez choisi <span class="incorrect">la mauvaise réponse</span>. <br><br><small>Dans le domaine de la mode, il y a eu plusieurs créations notables générées par IA. Voici quelques exemples : <br><br> En 2019, le géant de la mode japonais Uniqlo a lancé une collection de t-shirts créée en utilisant un algorithme génératif appelé "GAN", qui a créé des motifs basés sur des images et des motifs d archives d Uniqlo.<br> En 2020, la société de mode russe A Better Tomorrow a lancé une collection de vêtements créée en utilisant l IA, en utilisant un algorithme appelé "Neural Network". <br> En 2021, le designer de mode britannique Benjamin Benmoyal a créé une robe de mariée à l aide d un algorithme d apprentissage automatique appelé "Generative Adversarial Network" (GAN). <br> Ces exemples montrent comment l IA est de plus en plus utilisée dans le monde la création et plus particulièrerent de la mode pour créer des designs et des vêtements. <br><br> Le sac que vous voyez fait partie d une collection de mode créée par une intelligence artificielle (IA) nommée "A.I. New Form". Les créateurs de cette collection ont utilisé un modèle IA pour générer des designs de vêtements, qui ont ensuite été réalisés par des artisans japonais à partir de matériaux traditionnels tels que la soie et le coton. Les designs de la collection sont présentés avec des images de mannequins portant les vêtements, ainsi qu une vidéo montrant le processus de création. L originalité et l esthétique des designs pourrait inspirer de nouvelles idées dans le monde de la mode. Cependant, la collection n est pas réellement disponible à la vente, il s agit plutôt d un projet conceptuel pour explorer les possibilités de l IA dans la mode. En conclusion, cette collection peut être vue comme une source d inspiration pour les créateurs de mode et les amateurs de design<br><br> Cette année, une robe est devenue virale sur internet, pour son aspect féerique, on a decouvert, quelque temps plus tard que la robe n existait pas, mais qu elle avait belle et bien été conçue par une intelligence artificielle   </small>';
+				}
+			}
+           
+// Si l'utilisateur répond correctement à une question, ajoute 10 points
+if (answerId === 'answer3') {
+    points += 10;
+    totalPoints += 10;
+}
+
+// Stocke les points dans la session
+sessionStorage.setItem("points", points);
+
+			 // Afficher l'élément de lien vers la question suivante
+				 var nextLink = document.querySelector('.next-question-link');
+    				nextLink.style.display = 'block';
+		}
+	</script>
+
+</body>
+</html>

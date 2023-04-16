@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IRL OR AI ?</title>
+	<style>
+		body {
+			background-color: purple;
+			color: white;
+	    background-image: url(pic3.jpg);
+	    background-position: center;
+	    background-size: cover;
+	    height: 100vh;
+	    font-family: Arial,sans-serif;
+	}
+
+	.wrapper{
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    width: 100vw;
+	    height: 100vh;
+	}
+
+	.quiz{
+	    display: grid;
+	    grid-template-rows: 60px auto;
+	    width: 600px;
+	    height: 500px;
+	    border-radius: 50px;
+	}
+
+	.quiz_header{
+	    display: flex;
+	    justify-content: space-between;
+	    border-bottom-left-radius: 3px;
+	    border-bottom-right-radius: 3px;
+	    background-color: #fff;
+	    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+	    z-index: 1;
+	}
+
+	.quiz_user{
+	    display: flex;
+	    align-items: center;
+	    height: 100%;
+	    padding-left: 30px;
+	}
+
+	.quiz_body{
+	    padding: 20px 30px;
+	    background-color: skyblue;
+	}
+
+
+	.option_group{
+	    list-style-type: none;
+	    margin: 30px 0;
+	}
+	.option {
+  display: block;
+  width: 400px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-radius: 50px;
+  transition: 0.4s all;
+     border: 2px solid #341f97;
+	    color: #341f97; /* Ajouter cette ligne pour changer le curseur de la souris */
+}
+
+	.option.active{
+	    background-color: #341f97;
+	    color: #fff;
+	}
+
+	.btn-next{
+	    border: none;
+	    padding: 15px 35px;
+	    background-color: #341f97;
+	    color: #fff;
+	    border-radius: 50px;
+	    transition: 0.4s all;
+	}
+
+	.next-question-link:hover{
+	    cursor: pointer;
+	    background-color: greenyellow;
+	    color: #000;
+	}
+
+	.award_icon{
+	    display: block;
+	    font-size: 300px;
+	    color: #fff;
+	}
+
+	.username, .userpoints{
+	    color: #fff;
+	    text-align: center;
+	    margin-top: 15px;
+	}
+
+	.border{
+	    height: 500px;
+	    width: 500px;
+	    display: block;
+	    justify-content: center;
+	    margin: 0px 400px;
+	    border-radius: 10px;
+	    top: 100px;
+	    border-color: transparent;
+	}
+
+	h1 {
+		text-align: center;
+		font-size: 36px;
+		margin-top: 50px;
+		color: white;
+		
+	}
+	h2 {
+		font-size: 24px;
+		margin-top: 30px;
+		color: white;
+		border: 10px #000;
+	}
+	h4 {
+		font-size: 24px;
+		margin-top: 30px;
+		color: rgb(0, 0, 0);
+		border: 10px #000;
+    }
+	p {color: #9767f1; /* violet pastel */
+		font-size: 28px;
+		margin-top: 10px;
+		padding: 10px 20px;
+			background-color: white;
+		}
+		p1 {color: #9767f1; /* violet pastel */
+		font-size: 28px;
+		margin-top: 10px;
+		padding: 10px 20px;
+			
+		}
+		p2 {color: #9767f1; /* violet pastel */
+		font-size: 28px;
+		margin-top: 10px;
+		padding: 10px 20px;
+			
+		}
+		img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+			height: auto;
+		}
+		
+		a {
+			font-size: 20px;
+			padding: 10px 20px;
+			background-color: white;
+			color: purple;
+			border: none;
+			border-radius: 5px;
+			margin-top: 20px;
+			cursor: pointer;
+		}
+		.summary {
+			display: none;
+			margin-top: 50px;
+			text-align: center;
+		}
+		.correct {
+			color: green;
+			font-weight: bold;
+		}
+		.incorrect {
+			color: red;
+			font-weight: bold;
+		}
+		a.next-question-link {
+  color: #B19CD9; /* violet pastel */
+  border: none;
+	    padding: 15px 35px;
+	    background-color: #341f97;
+	   
+	    border-radius: 50px;
+	    transition: 0.4s all;
+}
+img.image-left,
+img.image-right {
+  display: inline-block;
+  width: 45%;
+  margin: 10px;
+  max-width: 50%;
+  height: auto;
+
+}
+* {
+          box-sizing: border-box;
+        }
+        
+        .column {
+          float: left;
+          width: 50%;
+          padding: 5px;
+        }
+        
+        /* Clearfix (clear floats) */
+		.row::after {
+content: "";
+clear: both;
+display: table;
+}
+		.réponse {
+			font-size: 24px;
+    font-weight: 150px bold;
+  }
+
+  small {
+  font-size: 22px;
+}
+
+	</style>
+</head>
+<body>
+	<h1>Quiz sur l'intelligence artificielle (AI) </h1>
+	<div class="wrapper">
+        <div class="quiz">
+            <div class="quiz_header">
+                <div class="quiz_user">
+                    <h4>VISAGE <span class="name"></span></h4>
+                </div>     
+            </div>
+			<div class="quiz_body">
+				<div id="question1">
+					<h2>Question 1</h2>
+					<p>Laquelle des deux filles vient d'une intelligence artificielle (IA) ?
+					<img src="FilleAI.png" class="image-left">
+					<img src="FilleHumaine.jpg" class="image-right"></p>
+					<form>
+						<!-- Ajout de l'attribut "onclick" sur les boutons pour appeler une fonction -->
+						<li class="option" id="option1"><input type="radio" name="q1" value="fille-ai">La fille de gauche <br></li>
+						<li class="option" id="option2"><input type="radio" name="q1" value="fille-humaine">La fille de droite <br></li>
+					</form>
+					<button onclick="checkAnswer('option1', 'answer1', 'option2', 'answer2' )">Répondre</button>
+					
+					<div id="answer1" class="summary" style="display: none">
+						<p>La réponse correcte est <span class="correct">La fille de gauche (IA)</span>.</p>
+					</div>
+					<div id="answer2" class="summary" style="display: none">
+						<p>La réponse correcte n'est pas <span class="incorrect">La fille de droite</span>.</p>
+					</div>
+				</div>
+			</div><a href="question2.html" class="next-question-link" onclick="next()">Question suivante</a>
+	</div>
+
+	<script>
+		function checkAnswer(optionId, answerId) {
+			var answer = document.getElementById(answerId);
+			answer.style.display = 'block';
+			var summary = answer.querySelector('p');
+			if (optionId === 'option1') {
+				if (document.querySelector('input[name="q1"]:checked').value === 'fille-ai') {
+					summary.innerHTML += 'Vous avez choisi <span class="correct">la bonne réponse</span>.<br><br><small>"Sandra Bryant et son équipe, ont utilisé une intelligence artificielle pour générer de fausses personnes et mesurer la perception de leur réalisme sur des applications de rencontre. Cette étude a révélé que 62% des célibataires interrogés auraient balayé vers la droite (aimé) sur un profil de rencontre généré par IA, et que 43% des répondants ont déclaré que ces profils semblaient réels. Les profils de rencontre fictifs créés par cette équipe, ont été réalisés en deux étapes principales : la création des images de profil réalistes grâce à <a href="https://thispersondoesnotexist.com/">Thispersondoesnotexist.com</a> (comme je viens de le faire pour le quiz) et la création d une nouvelle identité grâce à GPT-2 pour générer du texte. Les résultats montrent que les profils générés par IA peuvent être difficilement distingués des profils créés par de vraies personnes." <br><br> Ce site propose un jeu similaire à mon quiz, pour voir si vous pouvez reconnaître le vrai visage, du faux : <br> <a href="https://www.whichfaceisreal.com/index.php">https://www.whichfaceisreal.com/index.php</a></small>';
+				} else {
+					summary.innerHTML += 'Vous avez choisi <span class="incorrect">la mauvaise réponse</span>.<br><br><small>"Sandra Bryant et son équipe, ont utilisé une intelligence artificielle pour générer de fausses personnes et mesurer la perception de leur réalisme sur des applications de rencontre. Cette étude a révélé que 62% des célibataires interrogés auraient balayé vers la droite (aimé) sur un profil de rencontre généré par IA, et que 43% des répondants ont déclaré que ces profils semblaient réels. Les profils de rencontre fictifs créés par cette équipe, ont été réalisés en deux étapes principales : la création des images de profil réalistes grâce à <a href="https://thispersondoesnotexist.com/">Thispersondoesnotexist.com</a> (comme je viens de le faire pour le quiz) et la création d une nouvelle identité grâce à GPT-2 pour générer du texte. Les résultats montrent que les profils générés par IA peuvent être difficilement distingués des profils créés par de vraies personnes." <br><br> Ce site propose un jeu similaire à mon quiz, pour voir si vous pouvez reconnaître le vrai visage, du faux : <br> <a href="https://www.whichfaceisreal.com/index.php">https://www.whichfaceisreal.com/index.php</a></small>';
+				}
+			} else if (optionId === 'option2') {
+				if (document.querySelector('input[name="q1"]:checked').value === 'fille-humaine') {
+					summary.innerHTML += 'Vous avez choisi <span class="correct">la bonne réponse</span>. <br><br><small>"Sandra Bryant et son équipe, ont utilisé une intelligence artificielle pour générer de fausses personnes et mesurer la perception de leur réalisme sur des applications de rencontre. Cette étude a révélé que 62% des célibataires interrogés auraient balayé vers la droite (aimé) sur un profil de rencontre généré par IA, et que 43% des répondants ont déclaré que ces profils semblaient réels. Les profils de rencontre fictifs créés par cette équipe, ont été réalisés en deux étapes principales : la création des images de profil réalistes grâce à <a href="https://thispersondoesnotexist.com/">Thispersondoesnotexist.com</a> (comme je viens de le faire pour le quiz) et la création d une nouvelle identité grâce à GPT-2 pour générer du texte. Les résultats montrent que les profils générés par IA peuvent être difficilement distingués des profils créés par de vraies personnes." <br><br> Ce site propose un jeu similaire à mon quiz, pour voir si vous pouvez reconnaître le vrai visage, du faux : <br> <a href="https://www.whichfaceisreal.com/index.php">https://www.whichfaceisreal.com/index.php</a></small>';
+				} else {
+					summary.innerHTML += 'Vous avez choisi <span class="incorrect">la mauvaise réponse</span>. <br><br><small>"Sandra Bryant et son équipe, ont utilisé une intelligence artificielle pour générer de fausses personnes et mesurer la perception de leur réalisme sur des applications de rencontre. Cette étude a révélé que 62% des célibataires interrogés auraient balayé vers la droite (aimé) sur un profil de rencontre généré par IA, et que 43% des répondants ont déclaré que ces profils semblaient réels. Les profils de rencontre fictifs créés par cette équipe, ont été réalisés en deux étapes principales : la création des images de profil réalistes grâce à <a href="https://thispersondoesnotexist.com/">Thispersondoesnotexist.com</a> (comme je viens de le faire pour le quiz) et la création d une nouvelle identité grâce à GPT-2 pour générer du texte. Les résultats montrent que les profils générés par IA peuvent être difficilement distingués des profils créés par de vraies personnes." <br><br> Ce site propose un jeu similaire à mon quiz, pour voir si vous pouvez reconnaître le vrai visage, du faux : <br> <a href="https://www.whichfaceisreal.com/index.php">https://www.whichfaceisreal.com/index.php</a></small>';
+					
+				}	
+			} // Initialise le nombre de points à 0
+
+let totalPoints = 0;
+// Si l'utilisateur répond correctement à une question, ajoute 10 points
+if (answerId === 'answer1') {
+    points += 10;
+	totalPoints += 10;
+}
+
+// Stocke les points dans la session
+sessionStorage.setItem("points", points);
+
+
+// Afficher l'élément de lien vers la question suivante
+				 var nextLink = document.querySelector('.next-question-link');
+    				nextLink.style.display = 'block';
+		}
+	</script>
+
+</body>
+</html>

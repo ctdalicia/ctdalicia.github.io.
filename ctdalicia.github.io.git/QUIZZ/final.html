@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Award-Page</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;   
+        }
+        
+        body{
+            background-image: url(pic3.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+        
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .border{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 500px;
+            width: 500px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .award_icon{
+            font-size: 300px;
+            color: gold;
+            margin-bottom: 20px;
+        }
+        
+        .username{
+            font-size: 50px;
+            color: #341f97;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .userpoints{
+            font-size: 30px;
+            color: #341f97;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!--AWARD & POINTS-->
+    <div class="wrapper">
+        <div class="border">
+            <i class="fas fa-award award_icon"></i>
+            <h1 class="username"><span class="name"></span><br>BRAVO !</h1>
+            <p class="userpoints">Tes Points: <span class="points" id="totalPoints"></span></p>
+
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/d56261bbb9.js"></script>
+
+    <script>
+        let user_name = sessionStorage.getItem("name");
+        let user_points = sessionStorage.getItem("points");
+
+        
+        document.querySelector("span.name").innerHTML = user_name;
+        document.getElementById("totalPoints").textContent = user_points;
+
+
+    </script>
+</body>
+</html>
